@@ -1,0 +1,35 @@
+server:
+  port: 8080
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
+
+#Gateway
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: ms-student
+          uri: lb://ms-student
+          predicates:
+            - Path=/api/v1/student/**
+        - id: ms-instructor
+          uri: lb://ms-instructor
+          predicates:
+            - Path=/api/v1/instructor/**
+        - id: ms-course
+          uri: lb://ms-course
+          predicates:
+            - Path=/api/v1/course/**
+        - id: ms-enrollment
+          uri: lb://ms-enrollment
+          predicates:
+            - Path=/api/v1/enrollment/**

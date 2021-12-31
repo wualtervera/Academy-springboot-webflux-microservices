@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ms-instructor
+  cloud:
+    config:
+      uri:
+        - http://localhost:8888 #config server
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"
