@@ -9,8 +9,12 @@ spring:
         git:
           default-label: main
           uri: https://github.com/wualtervera/Academy-springboot-webflux-microservices
-          search-paths:
-            - config-data
+          search-paths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
           skip-ssl-validation: true
+
+#  security:
+#    user:
+#      name: root
+#      password: 123
