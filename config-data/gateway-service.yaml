@@ -32,4 +32,4 @@ spring:
         - id: ms-enrollment
           uri: lb://ms-enrollment
           predicates:
-            - Path=/api/v1/enrollment/**
+            - Path=/api/v1/enrollment**
