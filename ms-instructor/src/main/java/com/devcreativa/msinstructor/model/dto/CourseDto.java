@@ -1,7 +1,6 @@
 package com.devcreativa.mscourse.model.entity;
 
-import java.time.LocalDateTime;
-
+import com.devcreativa.mscourse.model.dto.InstructorDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,9 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class InstructorCourse {
+public class Course {
     private String id;
-    private String idInstructor;
-    private String idCourse;
-    private LocalDateTime createAt;
+    private String name;
+    private String description;
+    private InstructorDto instructor;
 }
