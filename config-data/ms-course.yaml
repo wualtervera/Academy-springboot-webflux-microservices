@@ -14,24 +14,3 @@ spring:
     mongodb:
       database: academy
       uri: mongodb://localhost:27017
-
-resilience4j.circuitbreaker:
-  instances:
-    instructorCB:
-      registerHealthIndicator: true
-      slidingWindowSize: 10
-      permittedNumberOfCallsInHalfOpenState: 3
-      slidingWindowType: TIME_BASED
-      minimumNumberOfCalls: 20
-      waitDurationInOpenState: 50s
-      failureRateThreshold: 50
-      eventConsumerBufferSize: 10
-    studentCB:
-      registerHealthIndicator: true
-      slidingWindowSize: 10
-      permittedNumberOfCallsInHalfOpenState: 3
-      slidingWindowType: TIME_BASED
-      minimumNumberOfCalls: 20
-      waitDurationInOpenState: 50s
-      failureRateThreshold: 50
-      eventConsumerBufferSize: 10

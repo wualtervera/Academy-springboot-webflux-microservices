@@ -149,6 +149,7 @@ public class RegistrationRouter {
                 .andRoute(RequestPredicates.POST(uri), handler::save)
                 .andRoute(RequestPredicates.PUT(uri.concat("/{id}")), handler::update)
                 .andRoute(RequestPredicates.DELETE(uri.concat("/{id}")), handler::delete)
-                .andRoute(RequestPredicates.GET(uri.concat("/student/{id}")), handler::findByIdStudent);
+                .andRoute(RequestPredicates.GET(uri.concat("/student/{id}")), handler::findByIdStudent)
+                .andRoute(RequestPredicates.PATCH(uri.concat("/")), handler::patch);
     }
 }

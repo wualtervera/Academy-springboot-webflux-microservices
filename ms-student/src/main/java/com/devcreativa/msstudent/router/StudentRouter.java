@@ -151,7 +151,6 @@ public class StudentRouter {
                 .andRoute(RequestPredicates.POST(uri), handler::save)
                 .andRoute(RequestPredicates.PUT(uri.concat("/{id}")), handler::update)
                 .andRoute(RequestPredicates.DELETE(uri.concat("/{id}")), handler::delete);
-
     }
 
 }

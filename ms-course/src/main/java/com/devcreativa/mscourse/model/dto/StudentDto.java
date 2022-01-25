@@ -1,4 +1,4 @@
-package com.devcreativa.msstudent.model.dto;
+package com.devcreativa.mscourse.model.dto;
 
 import java.util.List;
 
@@ -11,8 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StudentDto {
   private String id;
-  private String nombre;
-  private int edad;
+  private String name;
+  private String email;
+  private String password;
   private List<CourseDto> courses;
 
 }

@@ -1,10 +1,9 @@
-package com.devcreativa.mscourse.client;
+package com.devcreativa.msenrollment.client;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import com.devcreativa.mscourse.model.dto.StudentDto;
+import com.devcreativa.msenrollment.model.dto.StudentDto;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

@@ -1,24 +1,23 @@
-package com.devcreativa.msinstructor.client;
+package com.devcreativa.msstudent.client;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.devcreativa.msinstructor.model.dto.CourseDto;
+import com.devcreativa.msstudent.model.dto.CoursesDto;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 @Component
 public class CourseClient {
     WebClient webClient = WebClient.create("http://localhost:8080/api/v1/course");
 
 
-    public Flux<CourseDto> findCoursesInstructorById(String id) {
+    public Flux<CoursesDto> findAllCourses() {
         return webClient.get()
-                .uri("/instructor/{id}", id)
+                .uri("/")
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .bodyToFlux(CourseDto.class);
+                .bodyToFlux(CoursesDto.class);
     }
 
     /*public Flux<CourseDto> findAll() {

@@ -11,8 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StudentDto {
   private String id;
-  private String nombre;
-  private int edad;
-  private List<CourseDto> courses;
+  private String name;
+  private String email;
+  private String password;
+  private List<CoursesIdDto> courses;
 
 }

@@ -5,3 +5,19 @@ spring:
     config:
       uri:
         - http://localhost:8888 #config server
+
+
+springdoc:
+  swagger-ui:
+    path: swagger-doc/swagger-ui/students.html
+  api-docs:
+    path: swagger-doc/v3/api-docs
+    groups:
+      enabled: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
-
 import com.devcreativa.msstudent.model.entity.Student;
 import com.devcreativa.msstudent.services.StudentService;
 import reactor.core.publisher.Mono;
@@ -22,14 +21,14 @@ public class StudenHandler implements IOperations {
     private StudentService service;
 
     @Override
-    public Mono<ServerResponse> findAll(final ServerRequest request) {
+    public Mono<ServerResponse> findAll(ServerRequest request) {
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                 .body(this.service.findAll(), Student.class)
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
 
     @Override
-    public Mono<ServerResponse> findById(final ServerRequest request) {
+    public Mono<ServerResponse> findById(ServerRequest request) {
         return this.service.findById(request.pathVariable("id"))
                 .flatMap(student -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
@@ -38,7 +37,7 @@ public class StudenHandler implements IOperations {
     }
 
     @Override
-    public Mono<ServerResponse> save(final ServerRequest request) {
+    public Mono<ServerResponse> save(ServerRequest request) {
         Mono<Student> studentMono = request.bodyToMono(Student.class);
         return studentMono.flatMap(student -> this.service.save(student)
                 .flatMap(studentdb -> ServerResponse
@@ -48,7 +47,7 @@ public class StudenHandler implements IOperations {
     }
 
     @Override
-    public Mono<ServerResponse> update(final ServerRequest request) {
+    public Mono<ServerResponse> update(ServerRequest request) {
         Mono<Student> studentMono = request.bodyToMono(Student.class);
         String id = request.pathVariable("id");
 
@@ -63,7 +62,7 @@ public class StudenHandler implements IOperations {
     }
 
     @Override
-    public Mono<ServerResponse> delete(final ServerRequest request) {
+    public Mono<ServerResponse> delete(ServerRequest request) {
         String id = request.pathVariable("id");
 
         return this.service.findById(id)

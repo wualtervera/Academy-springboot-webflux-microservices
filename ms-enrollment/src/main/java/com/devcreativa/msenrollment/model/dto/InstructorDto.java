@@ -1,4 +1,4 @@
-package com.devcreativa.mscourse.model.dto;
+package com.devcreativa.msenrollment.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

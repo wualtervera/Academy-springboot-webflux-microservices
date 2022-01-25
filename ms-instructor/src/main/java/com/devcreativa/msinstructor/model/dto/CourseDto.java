@@ -1,6 +1,5 @@
-package com.devcreativa.mscourse.model.entity;
+package com.devcreativa.msinstructor.model.dto;
 
-import com.devcreativa.mscourse.model.dto.InstructorDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,9 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Course {
+public class CourseDto {
     private String id;
     private String name;
     private String description;
-    private InstructorDto instructor;
+    private String price;
+    private String urlImage;
+    private String rating;
 }

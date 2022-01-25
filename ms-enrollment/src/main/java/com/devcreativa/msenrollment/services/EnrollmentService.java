@@ -44,6 +44,11 @@ public class EnrollmentService implements IOpereationServices<Enrollment> {
         return this.repository.save(this.toRegistrationDao(enrollment)).map(this::toRegistration);
     }
 
+    public Mono<Enrollment> patch(Enrollment enrollment) {
+        enrollment.setCreateAt(LocalDateTime.now());
+        return this.repository.save(this.toRegistrationDao(enrollment)).map(this::toRegistration);
+    }
+
     @Override
     public Mono<Void> delete(String id) {
         return this.repository.deleteById(id);

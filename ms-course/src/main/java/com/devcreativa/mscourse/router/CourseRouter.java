@@ -23,132 +23,136 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 @Configuration
 public class CourseRouter {
-    String uri = "api/v1/course";
+  String uri = "api/v1/course";
 
-    @Bean
-    @RouterOperations({
-            @RouterOperation(
-                    path = "/api/v1/course",
-                    produces = {
-                            MediaType.APPLICATION_JSON_VALUE
-                    },
-                    method = RequestMethod.GET,
-                    beanClass = CourseHandler.class,
-                    beanMethod = "findAll",
-                    operation = @Operation(
-                            operationId = "findAll",
-                            responses = {
-                                    @ApiResponse(
-                                            responseCode = "200",
-                                            description = "successful",
-                                            content = @Content(schema = @Schema(
-                                                    implementation = Course.class
-                                            )))
-                            }
-                    )
-            ),
-            @RouterOperation(
-                    path = "/api/v1/course/{id}",
-                    produces = {
-                            MediaType.APPLICATION_JSON_VALUE
-                    },
-                    method = RequestMethod.GET,
-                    beanClass = CourseHandler.class,
-                    beanMethod = "findById",
-                    operation = @Operation(
-                            operationId = "findById",
-                            responses = {
-                                    @ApiResponse(
-                                            responseCode = "200",
-                                            description = "successful",
-                                            content = @Content(schema = @Schema(
-                                                    implementation = Course.class
-                                            ))),
-                                    @ApiResponse(responseCode = "404", description = "Not found")
-                            },
-                            parameters = {
-                                    @Parameter(in = ParameterIn.PATH, name = "id")
-                            })
-            ),
-            @RouterOperation(
-                    path = "/api/v1/course",
-                    produces = {
-                            MediaType.APPLICATION_JSON_VALUE
-                    },
-                    method = RequestMethod.POST,
-                    beanClass = CourseHandler.class,
-                    beanMethod = "save",
-                    operation = @Operation(
-                            operationId = "save",
-                            responses = {
-                                    @ApiResponse(
-                                            responseCode = "200",
-                                            description = "successful",
-                                            content = @Content(schema = @Schema(
-                                                    implementation = Course.class
-                                            ))
-                                    )
-                            },
-                            requestBody = @RequestBody(
-                                    content = @Content(schema = @Schema(
-                                            implementation = Course.class
-                                    ))
-                            ))
-            ),
-            @RouterOperation(
-                    path = "/api/v1/course/{id}",
-                    produces = {
-                            MediaType.APPLICATION_JSON_VALUE
-                    },
-                    method = RequestMethod.PUT,
-                    beanClass = CourseHandler.class,
-                    beanMethod = "update",
-                    operation = @Operation(
-                            operationId = "update",
-                            responses = {
-                                    @ApiResponse(
-                                            responseCode = "200",
-                                            description = "successful",
-                                            content = @Content(schema = @Schema(
-                                                    implementation = Course.class
-                                            )))
-                            },
-                            requestBody = @RequestBody(
-                                    content = @Content(schema = @Schema(
-                                            implementation = Course.class
-                                    ))
-                            ),
-                            parameters = {
-                                    @Parameter(in = ParameterIn.PATH, name = "id")
-                            }
+  @Bean
+  @RouterOperations({
+      @RouterOperation(
+          path = "/api/v1/course",
+          produces = {
+              MediaType.APPLICATION_JSON_VALUE
+          },
+          method = RequestMethod.GET,
+          beanClass = CourseHandler.class,
+          beanMethod = "findAll",
+          operation = @Operation(
+              operationId = "findAll",
+              responses = {
+                  @ApiResponse(
+                      responseCode = "200",
+                      description = "successful",
+                      content = @Content(schema = @Schema(
+                          implementation = Course.class
+                      )))
+              }
+          )
+      ),
+      @RouterOperation(
+          path = "/api/v1/course/{id}",
+          produces = {
+              MediaType.APPLICATION_JSON_VALUE
+          },
+          method = RequestMethod.GET,
+          beanClass = CourseHandler.class,
+          beanMethod = "findById",
+          operation = @Operation(
+              operationId = "findById",
+              responses = {
+                  @ApiResponse(
+                      responseCode = "200",
+                      description = "successful",
+                      content = @Content(schema = @Schema(
+                          implementation = Course.class
+                      ))),
+                  @ApiResponse(responseCode = "404", description = "Not found")
+              },
+              parameters = {
+                  @Parameter(in = ParameterIn.PATH, name = "id")
+              })
+      ),
+      @RouterOperation(
+          path = "/api/v1/course",
+          produces = {
+              MediaType.APPLICATION_JSON_VALUE
+          },
+          method = RequestMethod.POST,
+          beanClass = CourseHandler.class,
+          beanMethod = "save",
+          operation = @Operation(
+              operationId = "save",
+              responses = {
+                  @ApiResponse(
+                      responseCode = "200",
+                      description = "successful",
+                      content = @Content(schema = @Schema(
+                          implementation = Course.class
+                      ))
+                  )
+              },
+              requestBody = @RequestBody(
+                  content = @Content(schema = @Schema(
+                      implementation = Course.class
+                  ))
+              ))
+      ),
+      @RouterOperation(
+          path = "/api/v1/course/{id}",
+          produces = {
+              MediaType.APPLICATION_JSON_VALUE
+          },
+          method = RequestMethod.PUT,
+          beanClass = CourseHandler.class,
+          beanMethod = "update",
+          operation = @Operation(
+              operationId = "update",
+              responses = {
+                  @ApiResponse(
+                      responseCode = "200",
+                      description = "successful",
+                      content = @Content(schema = @Schema(
+                          implementation = Course.class
+                      )))
+              },
+              requestBody = @RequestBody(
+                  content = @Content(schema = @Schema(
+                      implementation = Course.class
+                  ))
+              ),
+              parameters = {
+                  @Parameter(in = ParameterIn.PATH, name = "id")
+              }
 
-                    )
+          )
 
-            ),
-            @RouterOperation(path = "/api/v1/course/{id}",
-                    produces = {
-                            MediaType.APPLICATION_JSON_VALUE
-                    },
-                    method = RequestMethod.DELETE,
-                    beanClass = CourseHandler.class,
-                    beanMethod = "delete",
-                    operation = @Operation(operationId = "delete",
-                            responses = {
-                                    @ApiResponse(responseCode = "204", description = "No content"),
-                                    @ApiResponse(responseCode = "404", description = "Not found")
-                            },
-                            parameters = {
-                                    @Parameter(in = ParameterIn.PATH, name = "id")
-                            }
-                    )
-            )
-    })
-    public RouterFunction<ServerResponse> courseRoutes(CourseHandler handler) {
-        return RouterFunctions.route(RequestPredicates.GET(uri), handler::findAll)
-                .andRoute(RequestPredicates.GET(uri.concat("/{id}")), handler::findById)
-                .andRoute(RequestPredicates.POST(uri), handler::save)
-                .andRoute(RequestPredicates.PUT(uri.concat("/{id}")), handler::update)
-                .andRoute(RequestPredicates.DELETE(uri.concat("/{id}")), handler::delete);
+      ),
+      @RouterOperation(path = "/api/v1/course/{id}",
+          produces = {
+              MediaType.APPLICATION_JSON_VALUE
+          },
+          method = RequestMethod.DELETE,
+          beanClass = CourseHandler.class,
+          beanMethod = "delete",
+          operation = @Operation(operationId = "delete",
+              responses = {
+                  @ApiResponse(responseCode = "204", description = "No content"),
+                  @ApiResponse(responseCode = "404", description = "Not found")
+              },
+              parameters = {
+                  @Parameter(in = ParameterIn.PATH, name = "id")
+              }
+          )
+      )
+  })
+  public RouterFunction<ServerResponse> courseRoutes(CourseHandler handler) {
+    return RouterFunctions.route(RequestPredicates.GET(uri), handler::findAll)
+        .andRoute(RequestPredicates.GET(uri.concat("/all")), handler::findAllCourseMoreInstructor) //Return alls courses more instructor
+        .andRoute(RequestPredicates.GET(uri.concat("/{id}")), handler::findById)
+        .andRoute(RequestPredicates.POST(uri), handler::save)
+        .andRoute(RequestPredicates.PUT(uri.concat("/{id}")), handler::update)
+        .andRoute(RequestPredicates.DELETE(uri.concat("/{id}")), handler::delete)
+        .andRoute(RequestPredicates.POST(uri.concat("/payment")), handler::paymetCourse) // returns the student and the purchased course
+        .andRoute(RequestPredicates.GET(uri.concat("/instructor/{id}")), handler::findCoursesByInstructor) //Returns courses by instructor id
+        .andRoute(RequestPredicates.GET(uri.concat("/one/{id}")), handler::findCourseMoreInstructorById); //Return one courses more instructor
 
-    }
+  }
 }

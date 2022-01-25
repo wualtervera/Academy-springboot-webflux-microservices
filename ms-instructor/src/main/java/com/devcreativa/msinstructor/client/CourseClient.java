@@ -1,44 +1,33 @@
-package com.devcreativa.mscourse.client;
+package com.devcreativa.msinstructor.client;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.devcreativa.mscourse.model.dto.StudentDto;
+import com.devcreativa.msinstructor.model.dto.CourseDto;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Component
-public class StudentClient {
-    WebClient webClient = WebClient.create("http://localhost:8080/api/v1/student");
+public class CourseClient {
+    WebClient webClient = WebClient.create("http://localhost:8080/api/v1/course");
 
 
-    public Mono<StudentDto> findById(String id) {
+    public Flux<CourseDto> findCoursesInstructorById(String id) {
         return webClient.get()
-                .uri("/{id}", id)
+                .uri("/instructor/{id}", id)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .bodyToMono(StudentDto.class);
+                .bodyToFlux(CourseDto.class);
     }
 
-    public Flux<StudentDto> findAll() {
+    /*public Flux<CourseDto> findAll() {
         return webClient.get()
-            .uri("/")
+            .uri("/instructor")
             .accept(MediaType.APPLICATION_JSON)
             .retrieve()
-            .bodyToFlux(StudentDto.class);
-    }
-
-    public Mono<StudentDto> save(StudentDto student) {
-        return webClient.post()
-            .uri("/")
-            .contentType(MediaType.APPLICATION_JSON)
-            .body(Mono.just(student), StudentDto.class)
-            .retrieve()
-            .bodyToMono(StudentDto.class);
-    }
-
-
+            .bodyToFlux(CourseDto.class);
+    }*/
 
 
 }
