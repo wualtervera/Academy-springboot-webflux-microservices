@@ -20,16 +20,16 @@ spring:
         - id: ms-student
           uri: lb://ms-student
           predicates:
-            - Path=/api/v1/student/**, /swagger-doc/**
+            - Path=/api/v1/student/**, /swagger-ui.html**, /v3/api-docs/**
         - id: ms-instructor
           uri: lb://ms-instructor
           predicates:
-            - Path=/api/v1/instructor/**, /swagger-doc/**
+            - Path=/api/v1/instructor/**, /swagger-ui.html**, /v3/api-docs/**
         - id: ms-course
           uri: lb://ms-course
           predicates:
-            - Path=/api/v1/course/**, /swagger-doc/**
+            - Path=/api/v1/course/**, /swagger-ui.html**, /v3/api-docs/**
         - id: ms-enrollment
           uri: lb://ms-enrollment
           predicates:
-            - Path=/api/v1/enrollment/**, /swagger-doc/**
+            - Path=/api/v1/enrollment/**, /swagger-ui.html*, /v3/api-docs/**
