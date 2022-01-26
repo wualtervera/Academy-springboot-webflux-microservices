@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -14,6 +15,7 @@ import com.devcreativa.msstudent.model.entity.Student;
 import com.devcreativa.msstudent.services.StudentService;
 import reactor.core.publisher.Mono;
 
+@CrossOrigin(origins = "http://localhost:8080")
 @Component
 public class StudenHandler implements IOperations {
 
