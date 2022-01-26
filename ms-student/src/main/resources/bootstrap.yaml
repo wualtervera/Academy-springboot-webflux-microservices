@@ -6,7 +6,9 @@ spring:
       uri:
         - http://localhost:8888 #config server
 
-
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
 #springdoc:
 #  swagger-ui:
 #    path: swagger-ui/students.html
@@ -14,7 +16,7 @@ spring:
 #    path: swagger-doc/v3/api-docs
 #    groups:
 #      enabled: true
-
+#http://localhost:8080/v3/api-docs
 
 #management:
 #  endpoints:
