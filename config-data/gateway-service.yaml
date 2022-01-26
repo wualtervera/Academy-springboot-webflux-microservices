@@ -20,7 +20,7 @@ spring:
         - id: ms-student
           uri: lb://ms-student
           predicates:
-            - Path=/api/v1/student/**, /swagger-ui.html**, /v3/api-docs/**, /webjars/swagger-ui/**
+            - Path=/api/v1/student/**, /swagger-ui.html**, /webjars/swagger-ui/**
         - id: ms-instructor
           uri: lb://ms-instructor
           predicates:
