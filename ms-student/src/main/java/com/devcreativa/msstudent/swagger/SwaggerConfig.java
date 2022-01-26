@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
     info = @Info(title = "Academy", version = "1.0", description = "Documentation APIs v1.0")
-    , servers = @Server(url = "http://localhost:65523")
+    //, servers = @Server(url = "http://localhost:65523")
 )
 public class SwaggerConfig {
 
