@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+import com.devcreativa.mscourse.util.LogTracer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.circuitbreaker.ReactiveCircuitBreakerFactory;
 import org.springframework.stereotype.Service;
@@ -40,15 +41,20 @@ public class CourseService implements IOpereationServices<Course> {
 
   @Autowired
   private ReactiveCircuitBreakerFactory breakerFactory;
-
+    @Autowired
+    private LogTracer logTracer;
 
   @Override
   public Flux<Course> findAll() {
+
+      logTracer.printLog("service", "x");
+
     return repository.findAll().map(this::toCourse);
   }
 
   @Override
   public Mono<Course> findById(String id) {
+      logTracer.printLog("service", id);
     return this.repository.findById(id).map(this::toCourse);
   }
 

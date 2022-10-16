@@ -6,6 +6,9 @@ spring:
       uri:
         - http://localhost:8888 #config server
 
+  zipkin:
+    base-url: http://127.0.0.1:9411
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

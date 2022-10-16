@@ -1,0 +1,3 @@
+https://zipkin.io/pages/quickstart.html
+
+java -jar zipkin.jar

@@ -1,5 +1,6 @@
 package com.devcreativa.mscourse.handler;
 
+import com.devcreativa.mscourse.util.LogTracer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,6 +16,7 @@ import com.devcreativa.mscourse.model.entity.Course;
 import com.devcreativa.mscourse.services.CourseService;
 import reactor.core.publisher.Mono;
 
+
 @Component
 public class CourseHandler implements IOperations {
   @Autowired
@@ -23,8 +25,12 @@ public class CourseHandler implements IOperations {
   @Autowired
   private InstructorClient instructorClient;
 
+  @Autowired
+  private LogTracer logTracer;
+
   @Override
   public Mono<ServerResponse> findAll(ServerRequest request) {
+    logTracer.printLog("controller", request.uri());
     return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
         .body(this.service.findAll(), Course.class);
   }
