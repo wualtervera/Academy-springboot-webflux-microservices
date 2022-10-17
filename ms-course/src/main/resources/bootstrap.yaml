@@ -9,3 +9,15 @@ spring:
 
   zipkin:
     base-url: http://127.0.0.1:9411
+
+  sleuth:
+    async:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#http://localhost:53021/actuator/prometheus

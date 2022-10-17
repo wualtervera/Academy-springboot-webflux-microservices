@@ -1,5 +1,6 @@
 package com.devcreativa.mscourse.util;
 
+import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,15 +18,28 @@ public class LogTracer {
     @Autowired
     private Tracer tracer;
 
-    public void printLog(String trace, Object object){
+    public void printLog(String traceName, String tagKey, Object tagValue){
 
-        Span span = tracer.nextSpan().name(trace);
+        String json = objectToJson(tagValue);
+
+        Span span = tracer.nextSpan()
+            .name(traceName)
+            .tag(tagKey, json);
+
         try(Tracer.SpanInScope si = tracer.withSpan(span.start())){
-            log.info(trace.concat(" -> {}"), object);
+            log.info(tagKey.concat(" -> {}"), json);
         }finally {
             span.end();
         }
 
     }
+
+    public String objectToJson(Object object){
+        Gson gson = new Gson();
+
+        String json =  gson.toJson(object);
+        return json;
+    }
+
 
 }
